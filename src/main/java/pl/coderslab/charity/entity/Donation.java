@@ -1,9 +1,11 @@
 package pl.coderslab.charity.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Data
@@ -26,9 +28,14 @@ public class Donation {
 
     private String zipCode;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
-    private LocalDate pickUpTime;
+
+    private String phone;
+
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime pickUpTime;
     private String pickUpComment;
 
 
