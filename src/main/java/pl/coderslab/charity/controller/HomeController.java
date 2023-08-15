@@ -39,6 +39,10 @@ public class HomeController {
         return donationService.getAllDonations();
     }
 
+    @ModelAttribute("donations")
+    public List<Donation> getAllDonation(){
+        return donationService.getAllDonations();
+    }
 
 
     @Autowired

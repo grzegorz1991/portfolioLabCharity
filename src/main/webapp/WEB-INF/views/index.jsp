@@ -12,12 +12,12 @@
     <div class="container container--85">
         <div class="stats--item">
             <c:choose>
-                <c:when test="${empty donationList}">
+                <c:when test="${empty donations}">
                     <em>0</em>
                 </c:when>
                 <c:otherwise>
                     <c:set var="totalDonations" value="0"/>
-                    <c:forEach items="${donationList}" var="donation">
+                    <c:forEach items="${donations}" var="donation">
                         <c:set var="totalDonations" value="${totalDonations + donation.quantity}"/>
                     </c:forEach>
                     <em>${totalDonations}</em>
@@ -30,11 +30,11 @@
 
         <div class="stats--item">
             <c:choose>
-                <c:when test="${empty donationList}">
+                <c:when test="${empty donations}">
                     <em>0</em>
                 </c:when>
                 <c:otherwise>
-                    <em>${donationList.size()}</em>
+                    <em>${donations.size()}</em>
                 </c:otherwise>
             </c:choose>
 
