@@ -46,14 +46,20 @@ public class DonationController {
 
     @RequestMapping("/form")
     public String showDonationForm(Model model) {
-
-        model.addAttribute("donation", new Donation());
+        Donation donation = new Donation();
+        model.addAttribute("donation", donation);
+        System.out.println("Donation object at step 1: " + donation);
         return "form";
     }
     @PostMapping("/form-confirmation")
-    public String formConfirmationPage(@ModelAttribute Donation donation) {
-       donationService.saveDonation(donation);
-        System.out.println(donation + "this is donation");
+    public String formConfirmationPage(@ModelAttribute Donation donation, @RequestParam("selectedCategoryIds") List<Long> selectedCategoryIds ){
+
+        List<Category> selectedCategories = categoryService.getCategoriesByIds(selectedCategoryIds);
+        donation.setCategories(selectedCategories);
+
+        donationService.saveDonation(donation);
+        System.out.println("Donation object at confirmation step: " + donation);
+
         return "form-confirmation";
     }
 }

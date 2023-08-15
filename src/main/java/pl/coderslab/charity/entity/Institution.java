@@ -16,5 +16,7 @@ public class Institution {
     private String name;
     private String description;
 
+    private String location;
+
 
 }

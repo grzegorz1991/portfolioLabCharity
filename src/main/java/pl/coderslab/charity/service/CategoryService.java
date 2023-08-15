@@ -25,4 +25,7 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
+    public List<Category> getCategoriesByIds(List<Long> categoryIds) {
+        return categoryRepository.findAllById(categoryIds);
+    }
 }
