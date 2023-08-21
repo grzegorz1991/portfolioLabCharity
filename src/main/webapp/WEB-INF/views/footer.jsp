@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
 <footer>
-    <div class="contact">
+    <div class="contact" id="contactUs">
         <h2>Skontaktuj się z nami</h2>
         <h3>Formularz kontaktowy</h3>
         <form class="form--contact">
